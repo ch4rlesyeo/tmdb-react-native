@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "allowSyntheticDefaultImports": true,
+    "jsx": "react-native",
+    "lib": ["dom", "esnext"],
+    "moduleResolution": "node",
+    "noEmit": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "paths": {
+      "@utils/*": ["universal/utils/*"],
+      "@store/*": ["universal/store/*"],
+      "@models/*": ["universal/models/*"],
+      "@screens/*": ["universal/screens/*"],
+      "@components/*": ["universal/components/*"]
+    }
+  },
+  "include": [
+    "./universal/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
