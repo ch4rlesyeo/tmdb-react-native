@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "tmdb-react-native",
+    "name": "TMDb React Native",
     "slug": "tmdb-react-native",
     "privacy": "public",
     "sdkVersion": "35.0.0",
