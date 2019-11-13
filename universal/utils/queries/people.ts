@@ -57,7 +57,7 @@ interface SearchPersonMovieCreditsResponse {
 
 export const searchPersonMoviesByName = (peopleName: string): Promise<SearchPersonMovieCreditsResponse> => {
   return new Promise((resolve) => {
-    fetch(`${apiUrl}/search/person?api_key=${apiKey}&query=${peopleName}&include_adult=true`, {
+    fetch(`${apiUrl}/search/person?api_key=${apiKey}&query=${peopleName}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'
