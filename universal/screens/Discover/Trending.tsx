@@ -1,11 +1,11 @@
 import React from 'react'
-import { ScrollView, TouchableOpacity, Image, View } from 'react-native'
+import { ScrollView, TouchableOpacity, Image } from 'react-native'
 import { useNavigation } from 'react-navigation-hooks'
 
 import { Screens } from '@utils/screens'
 import { useDiscoverTrending } from '@hooks/useDiscover'
 import { Text, Loader } from '@components/native'
-import { BrowseSection, BrowseSectionTitle } from './Styled'
+import { BrowseSection, BrowseSectionTitle, LoadingView } from './Styled'
 
 interface Props {
   imageWidth: number,
@@ -25,9 +25,9 @@ const TrendingMoviesView = (props: Props) => {
         <Text type='semibold' size={15}>Trending movies</Text>
       </BrowseSectionTitle>
       {loading ? (
-        <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', height: imageHeight }}>
+        <LoadingView height={imageHeight}>
           <Loader />
-        </View>
+        </LoadingView>
       ) : (
         <ScrollView horizontal>
           {trendingMovies.map((movie, index) => (

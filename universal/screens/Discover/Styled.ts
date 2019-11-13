@@ -1,9 +1,14 @@
 import styled from 'styled-components/native'
 
+interface LoadingViewProps {
+  height: number
+}
+
 export const LoadingView = styled.View`
-  flex: 1;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
+  height: ${(props: LoadingViewProps) => props.height}px;
 `
 
 export const BrowseSection = styled.View`
