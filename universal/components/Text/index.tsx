@@ -4,7 +4,7 @@ import { Text } from 'react-native'
 interface Props {
   size?: number,
   type?: 'default' | 'semibold' | 'bold',
-  color?: 'default',
+  color?: 'default' | 'light',
   center?: boolean
   children?: React.ReactNode,
   numberOfLines?: number
@@ -12,12 +12,13 @@ interface Props {
 
 const Fonts = {
   default: 'Source Sans Pro',
-  semibold: 'Source Sans Pro Bold',
-  bold: 'Source Sans Pro Black'
+  semibold: 'Source Sans Pro SemiBold',
+  bold: 'Source Sans Pro Bold'
 }
 
 const Colors = {
-  default: 'white'
+  default: 'white',
+  light: 'rgb(140, 150, 160)'
 }
 
 export default (props: Props) => {

@@ -1,5 +1,11 @@
 import Text from './Text'
+import TextBox from './TextBox'
+import Loader from './Loader'
+import Container from './Container'
 
 export {
-  Text
+  Text,
+  TextBox,
+  Loader,
+  Container
 }

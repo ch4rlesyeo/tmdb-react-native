@@ -1,19 +1,24 @@
+import { Cast } from './people'
+
 export interface Movie {
   id: string,
   title: string,
+  casts?: Cast[],
   description: string,
   posterUrl: string,
   releaseDate: Date,
-  voteAverage: number
+  voteAverage: number,
+  duration?: number
 }
 
-export interface RawDiscoverMovie {
+export interface RawMovie {
   id: string,
   title: string,
   overview: string,
   poster_path: string,
   release_date: string,
-  vote_average: number
+  vote_average: number,
+  runtime: number
 }
 
 export interface RawTrendingMovie {

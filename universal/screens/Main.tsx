@@ -6,18 +6,32 @@ import { createAppContainer } from 'react-navigation'
 import { createStackNavigator } from 'react-navigation-stack'
 
 import { Screens } from '@utils/screens'
-import BrowseScreen from './Browse'
+import DashboardScreen from './Dashboard'
+import MovieViewScreen from './View/Movie'
+import PeopleViewScreen from './View/People'
 
 const AppContainer = createAppContainer(createStackNavigator({
-  [Screens.MainScreen]: {
-    screen: BrowseScreen,
+  [Screens.Dashboard.DefaultScreen]: {
+    screen: DashboardScreen,
     navigationOptions: {
       header: null,
       gesturesEnabled: false
     }
+  },
+  [Screens.View.MovieViewScreen]: {
+    screen: MovieViewScreen,
+    navigationOptions: {
+      header: null
+    }
+  },
+  [Screens.View.PeopleViewScreen]: {
+    screen: PeopleViewScreen,
+    navigationOptions: {
+      header: null
+    }
   }
 }, {
-  initialRouteName: Screens.MainScreen
+  initialRouteName: Screens.Dashboard.DefaultScreen
 }))
 
 const MainScreen = () => {
