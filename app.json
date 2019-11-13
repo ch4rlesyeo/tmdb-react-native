@@ -2,6 +2,7 @@
   "expo": {
     "name": "TMDb React Native",
     "slug": "tmdb-react-native",
+    "description": "A simple movie app for browsing movies, built with React Native and Expo.",
     "privacy": "public",
     "sdkVersion": "35.0.0",
     "platforms": [
