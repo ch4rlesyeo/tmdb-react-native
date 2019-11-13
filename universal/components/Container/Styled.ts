@@ -7,8 +7,10 @@ export const ContainerView = styled.View`
   padding-top: ${getStatusBarHeight() + 10}px;
 `
 
-export const Actions = styled.View`
-  padding: 10px;
+export const Actions = styled.TouchableOpacity`
+  padding: 0px 10px 10px;
+  flex-direction: row;
+  align-items: center;
 `
 
 export const Header = styled.View`

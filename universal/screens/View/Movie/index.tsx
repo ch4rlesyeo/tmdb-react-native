@@ -15,7 +15,7 @@ interface State {
 }
 
 const MovieViewScreen = () => {
-  const { state, navigate } = useNavigation()
+  const { state, navigate, goBack } = useNavigation()
 
   const movieId = state.params.movie.id
 
@@ -53,7 +53,7 @@ const MovieViewScreen = () => {
   const castImageHeight = Dimensions.get('screen').height * 0.21
 
   return (
-    <Container>
+    <Container onBack={() => goBack(null)}>
       <ScrollView>
         <CoverContainer>
           <BlurCover>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { StatusBar } from 'react-native'
+import { View, StatusBar } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
 
 import Text from '../Text'
@@ -21,8 +21,11 @@ export default (props: Props) => {
     <ContainerView>
       <StatusBar barStyle='light-content' />
       {onBack && (
-        <Actions>
-          <Ionicons name='md-arrow-back' size={20} color='white' />
+        <Actions onPress={onBack}>
+          <View style={{ width: 24, height: 24, paddingRight: 10 }}>
+            <Ionicons name='md-arrow-back' size={24} color='white' />
+          </View>
+          <Text type='semibold' size={15}>Back</Text>
         </Actions>
       )}
       {header && (

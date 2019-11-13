@@ -14,7 +14,7 @@ interface State {
 }
 
 const ViewPeopleScreen = () => {
-  const { state, navigate } = useNavigation()
+  const { state, navigate, goBack } = useNavigation()
 
   const peopleId = state.params.people.id
 
@@ -49,7 +49,7 @@ const ViewPeopleScreen = () => {
   const imageHeight = Dimensions.get('screen').height * 0.35
 
   return (
-    <Container>
+    <Container onBack={() => goBack(null)}>
       <ScrollView>
         <View style={{ flexDirection: 'row', padding: 10, paddingTop: 5 }}>
           <View style={{ width: imageWidth, height: imageHeight }}>
@@ -87,11 +87,14 @@ const ViewPeopleScreen = () => {
             {person.alsoCast.map((c, index) => (
               <TouchableOpacity
                 key={index}
-                style={{ marginRight: 10, height: imageHeight }}
+                style={{ marginRight: 10, width: imageWidth }}
                 activeOpacity={0.6}
                 onPress={() => navigate(Screens.View.MovieViewScreen, { movie: c })}
               >
-                <Image source={{ uri: c.posterUrl }} style={{ width: imageWidth, height: '100%' }} />
+                <Image source={{ uri: c.posterUrl }} style={{ width: imageWidth, height: imageHeight }} />
+                <View style={{ paddingTop: 5 }}>
+                  <Text center>{c.title}</Text>
+                </View>
               </TouchableOpacity>
             ))}
           </ScrollView>
