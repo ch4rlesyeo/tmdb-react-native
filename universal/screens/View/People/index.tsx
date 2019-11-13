@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import moment from 'moment'
 import { View, ScrollView, Dimensions, Image, TouchableOpacity } from 'react-native'
 import { useNavigation } from 'react-navigation-hooks'
 
@@ -6,7 +7,7 @@ import { Screens } from '@utils/screens'
 import { searchPersonById } from '@utils/queries/people'
 import { Person } from '@models/people'
 import { Container, Text, Loader } from '@components/native'
-import moment from 'moment'
+import { ProfileOverview, ProfileOverviewDetails, OverviewDetailsItem, ProfileSection, ProfileSectionName, KnownMovieName } from './Styled'
 
 interface State {
   person?: Person,
@@ -51,38 +52,38 @@ const ViewPeopleScreen = () => {
   return (
     <Container onBack={() => goBack(null)}>
       <ScrollView>
-        <View style={{ flexDirection: 'row', padding: 10, paddingTop: 5 }}>
+        <ProfileOverview>
           <View style={{ width: imageWidth, height: imageHeight }}>
             <Image source={{ uri: person.profileUrl }} style={{ width: '100%', height: '100%' }} />
           </View>
-          <View style={{ paddingLeft: 20, paddingRight: 20, flex: 1 }}>
-            <View style={{ paddingBottom: 20, flexWrap: 'wrap' }}>
+          <ProfileOverviewDetails>
+            <OverviewDetailsItem>
               <Text type='semibold' size={21}>{person.name}</Text>
-            </View>
-            <View style={{ paddingBottom: 20 }}>
+            </OverviewDetailsItem>
+            <OverviewDetailsItem>
               <Text size={15}>Born :</Text>
               <Text size={15} color='light'>{moment(person.birthday).format('YYYY-MM-DD')}</Text>
-            </View>
-            <View style={{ paddingBottom: 20 }}>
+            </OverviewDetailsItem>
+            <OverviewDetailsItem>
               <Text size={15}>Place of birth :</Text>
               <Text size={15} color='light'>{person.placeOfBirth}</Text>
-            </View>
-            <View>
+            </OverviewDetailsItem>
+            <OverviewDetailsItem>
               <Text size={15}>Gender :</Text>
               <Text size={15} color='light'>{person.gender}</Text>
-            </View>
-          </View>
-        </View>
-        <View style={{ padding: 10 }}>
-          <View style={{ paddingBottom: 5 }}>
+            </OverviewDetailsItem>
+          </ProfileOverviewDetails>
+        </ProfileOverview>
+        <ProfileSection>
+          <ProfileSectionName>
             <Text size={15}>Biography :</Text>
-          </View>
+          </ProfileSectionName>
           <Text size={15} color='light' numberOfLines={10}>{person.biography}</Text>
-        </View>
-        <View style={{ padding: 10 }}>
-          <View style={{ paddingBottom: 5 }}>
+        </ProfileSection>
+        <ProfileSection>
+          <ProfileSectionName>
             <Text size={15}>Also known for :</Text>
-          </View>
+          </ProfileSectionName>
           <ScrollView horizontal>
             {person.alsoCast.map((c, index) => (
               <TouchableOpacity
@@ -92,13 +93,13 @@ const ViewPeopleScreen = () => {
                 onPress={() => navigate(Screens.View.MovieViewScreen, { movie: c })}
               >
                 <Image source={{ uri: c.posterUrl }} style={{ width: imageWidth, height: imageHeight }} />
-                <View style={{ paddingTop: 5 }}>
+                <KnownMovieName>
                   <Text center>{c.title}</Text>
-                </View>
+                </KnownMovieName>
               </TouchableOpacity>
             ))}
           </ScrollView>
-        </View>
+        </ProfileSection>
       </ScrollView>
     </Container>
   )
