@@ -5,7 +5,7 @@ import { Movie, RawMovie, RawTrendingMovie } from '@models/movie'
 import { searchCreditsByMovieId } from './people'
 
 interface GetPopularMoviesResponse {
-  discoverMovies?: Movie[],
+  popularMovies?: Movie[],
   error?: any
 }
 
@@ -34,7 +34,7 @@ export const getPopularMovies = async (): Promise<GetPopularMoviesResponse> => {
         })
 
         resolve({
-          discoverMovies: movies
+          popularMovies: movies
         })
       } else {
         resolve({

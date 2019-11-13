@@ -4,18 +4,18 @@ import { createBottomTabNavigator } from 'react-navigation-tabs'
 
 import { Screens } from '@utils/screens'
 import BottomTab from '@components/BottomTab'
-import ExploreScreen from '../Explore'
+import DiscoverScreen from '../Discover'
 import SearchScreen from '../Search'
 
 export default createAppContainer(createBottomTabNavigator({
-  [Screens.Dashboard.ExploreScreen]: {
-    screen: ExploreScreen
+  [Screens.Dashboard.DiscoverScreen]: {
+    screen: DiscoverScreen
   },
   [Screens.Dashboard.SearchScreen]: {
     screen: SearchScreen
   }
 }, {
-  initialRouteName: Screens.Dashboard.ExploreScreen,
+  initialRouteName: Screens.Dashboard.DiscoverScreen,
   tabBarComponent: (props) => (
     <BottomTab {...props} />
   )

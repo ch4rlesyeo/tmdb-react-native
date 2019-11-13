@@ -1,14 +1,19 @@
 import React, { useState, useEffect } from 'react'
+import { createStore } from 'redux'
+import { Provider as ReduxProvider } from 'react-redux'
 import { registerRootComponent } from 'expo'
 import { View } from 'react-native'
 import * as Font from 'expo-font'
 import { createAppContainer } from 'react-navigation'
 import { createStackNavigator } from 'react-navigation-stack'
 
+import reducers from '@store/reducers'
 import { Screens } from '@utils/screens'
 import DashboardScreen from './Dashboard'
 import MovieViewScreen from './View/Movie'
 import PeopleViewScreen from './View/People'
+
+const store = createStore(reducers)
 
 const AppContainer = createAppContainer(createStackNavigator({
   [Screens.Dashboard.DefaultScreen]: {
@@ -58,7 +63,9 @@ const MainScreen = () => {
   }
 
   return (
-    <AppContainer />
+    <ReduxProvider store={store}>
+      <AppContainer />
+    </ReduxProvider>
   )
 }
 

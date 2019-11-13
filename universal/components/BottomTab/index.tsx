@@ -10,11 +10,11 @@ const iconSizeLarge = 30
 export default () => {
   const { navigate, state } = useNavigation()
 
-  const goToDashboard = () => navigate(Screens.Dashboard.ExploreScreen)
+  const goToDashboard = () => navigate(Screens.Dashboard.DiscoverScreen)
   const goToSearch = () => navigate(Screens.Dashboard.SearchScreen)
 
   const tabs = [{
-    name: Screens.Dashboard.ExploreScreen,
+    name: Screens.Dashboard.DiscoverScreen,
     icon: 'md-home',
     size: iconSizeLarge,
     onPress: goToDashboard

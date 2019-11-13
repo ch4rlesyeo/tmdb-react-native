@@ -1,7 +1,7 @@
 export const Screens = {
   Dashboard: {
     DefaultScreen: 'DashboardScreen',
-    ExploreScreen: 'ExploreScreen',
+    DiscoverScreen: 'DiscoverScreen',
     SearchScreen: 'SearchScreen',
   },
   View: {
