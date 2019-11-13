@@ -17,15 +17,15 @@ const PopularMoviesView = (props: Props) => {
 
   const { imageWidth, imageHeight } = props
 
-  const { popularMovies, loading } = useDiscoverPopular()
+  const { popularMovies = [], loading } = useDiscoverPopular()
 
   return (
     <BrowseSection>
       <BrowseSectionTitle>
-        <Text type='semibold' size={15}>Trending movies</Text>
+        <Text type='semibold' size={15}>Popular movies</Text>
       </BrowseSectionTitle>
       {loading ? (
-        <View style={{ height: imageHeight, flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
+        <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', height: imageHeight }}>
           <Loader />
         </View>
       ) : (

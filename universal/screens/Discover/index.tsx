@@ -12,8 +12,8 @@ const DiscoverScreen = () => {
   return (
     <Container header={{ title: 'Discover', description: 'Trending and popular movies on TMDB' }}>
       <ScrollView>
-        <PopularMovies imageWidth={imageWidth} imageHeight={imageHeight} />
         <TrendingMovies imageWidth={imageWidth} imageHeight={imageHeight} />
+        <PopularMovies imageWidth={imageWidth} imageHeight={imageHeight} />
       </ScrollView>
     </Container>
   )
