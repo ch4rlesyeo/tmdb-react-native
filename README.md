@@ -27,6 +27,10 @@ yarn
 yarn start
 ```
 
+#### 3. Open up the expo app in your mobile device
+#### 4. Go to "Projects" tab
+#### 5. Select the project "TMDb React Native" under recently in development section
+
 ## Disclaimer
 This project is solely for sharing and exchanging technological ideas and does not subject to any commercial use.
 
