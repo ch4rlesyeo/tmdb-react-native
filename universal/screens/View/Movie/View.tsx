@@ -9,7 +9,7 @@ import { Cover, BasicInfo, Section, CastDetails } from './Styled'
 
 interface Props {
   movie?: Movie,
-  onSelect: (cast: Cast) => void,
+  onSelect?: (cast: Cast) => void,
   loading: boolean
 }
 
@@ -74,7 +74,7 @@ export default (props: Props) => {
               key={index}
               style={{ marginRight: 10, width: castImageWidth }}
               activeOpacity={0.6}
-              onPress={() => onSelect(cast)}
+              onPress={() => onSelect && onSelect(cast)}
             >
               <Image source={{ uri: cast.profileUrl }} style={{ width: '100%', height: castImageHeight }} />
               <CastDetails>
