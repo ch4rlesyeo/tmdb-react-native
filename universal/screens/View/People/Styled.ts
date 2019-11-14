@@ -13,11 +13,14 @@ export const Profile = {
   InfoItem: styled.View`
     flex-wrap: wrap;
     padding-bottom: 20px;
-  `,
-  Section: styled.View`
+  `
+}
+
+export const Section = {
+  Container: styled.View`
     padding: 10px;
   `,
-  SectionName: styled.View`
+  Name: styled.View`
     padding-bottom: 5px;
   `
 }

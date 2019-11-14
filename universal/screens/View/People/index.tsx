@@ -7,7 +7,7 @@ import { Screens } from '@utils/screens'
 import { searchPersonById } from '@utils/queries/people'
 import { Person } from '@models/people'
 import { Container, Text, Loader } from '@components/native'
-import { Profile, KnownMovieName } from './Styled'
+import { Profile, Section, KnownMovieName } from './Styled'
 
 interface State {
   person?: Person,
@@ -74,16 +74,16 @@ const ViewPeopleScreen = () => {
             </Profile.InfoItem>
           </Profile.Info>
         </Profile.Overview>
-        <Profile.Section>
-          <Profile.SectionName>
+        <Section.Container>
+          <Section.Name>
             <Text size={15}>Biography :</Text>
-          </Profile.SectionName>
+          </Section.Name>
           <Text size={15} color='light' numberOfLines={10}>{person.biography}</Text>
-        </Profile.Section>
-        <Profile.Section>
-          <Profile.SectionName>
+        </Section.Container>
+        <Section.Container>
+          <Section.Name>
             <Text size={15}>Also known for :</Text>
-          </Profile.SectionName>
+          </Section.Name>
           <ScrollView horizontal>
             {person.alsoCast.map((c, index) => (
               <TouchableOpacity
@@ -99,7 +99,7 @@ const ViewPeopleScreen = () => {
               </TouchableOpacity>
             ))}
           </ScrollView>
-        </Profile.Section>
+        </Section.Container>
       </ScrollView>
     </Container>
   )

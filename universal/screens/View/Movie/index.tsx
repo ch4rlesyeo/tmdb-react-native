@@ -7,7 +7,7 @@ import { Screens } from '@utils/screens'
 import { searchMovieById } from '@utils/queries/movies'
 import { Movie } from '@models/movie'
 import { Container, Text, Loader } from '@components/native'
-import { MovieCover, BlurCoverImage, CoverImage, BasicInfo, SecondaryInfo, InfoItem, DetailsSection, DetailsSectionName, CastDetails } from './Styled'
+import { Cover, BasicInfo, Section, CastDetails } from './Styled'
 
 interface State {
   movie?: Movie,
@@ -55,35 +55,35 @@ const MovieViewScreen = () => {
   return (
     <Container onBack={() => goBack(null)}>
       <ScrollView>
-        <MovieCover>
-          <BlurCoverImage>
+        <Cover.Container>
+          <Cover.BlurImage>
             <Image source={{ uri: movie.posterUrl }} style={{ width: '100%', height: imageHeight }} blurRadius={30} />
-          </BlurCoverImage>
-          <CoverImage>
+          </Cover.BlurImage>
+          <Cover.Image>
             <Image source={{ uri: movie.posterUrl }} style={{ width: imageWidth, height: imageHeight }} />
-          </CoverImage>
-        </MovieCover>
-        <BasicInfo>
+          </Cover.Image>
+        </Cover.Container>
+        <BasicInfo.Container>
           <Text type='bold' size={24} center>{movie.title}</Text>
-          <SecondaryInfo>
-            <InfoItem>
+          <BasicInfo.Secondary>
+            <BasicInfo.SecondaryItem>
               <Text size={17} color='light'>{moment(movie.releaseDate).format('YYYY')}</Text>
-            </InfoItem>
-            <InfoItem>
+            </BasicInfo.SecondaryItem>
+            <BasicInfo.SecondaryItem>
               <Text size={17} color='light'>{Math.floor((movie.duration / 60))}h {(movie.duration % 60)}m</Text>
-            </InfoItem>
-          </SecondaryInfo>
-        </BasicInfo>
-        <DetailsSection>
-          <DetailsSectionName>
+            </BasicInfo.SecondaryItem>
+          </BasicInfo.Secondary>
+        </BasicInfo.Container>
+        <Section.Container>
+          <Section.Name>
             <Text type='semibold' size={18}>Overview</Text>
-          </DetailsSectionName>
+          </Section.Name>
           <Text size={15} color='light' numberOfLines={6}>{movie.description}</Text>
-        </DetailsSection>
-        <DetailsSection>
-          <DetailsSectionName>
+        </Section.Container>
+        <Section.Container>
+          <Section.Name>
             <Text type='semibold' size={18}>Cast</Text>
-          </DetailsSectionName>
+          </Section.Name>
           <ScrollView horizontal>
             {movie.casts && movie.casts.map((cast, index) => (
               <TouchableOpacity
@@ -100,7 +100,7 @@ const MovieViewScreen = () => {
               </TouchableOpacity>
             ))}
           </ScrollView>
-        </DetailsSection>
+        </Section.Container>
       </ScrollView>
     </Container>
   )
