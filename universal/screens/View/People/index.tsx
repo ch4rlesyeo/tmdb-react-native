@@ -7,7 +7,7 @@ import { Screens } from '@utils/screens'
 import { searchPersonById } from '@utils/queries/people'
 import { Person } from '@models/people'
 import { Container, Text, Loader } from '@components/native'
-import { ProfileOverview, ProfileOverviewDetails, OverviewDetailsItem, ProfileSection, ProfileSectionName, KnownMovieName } from './Styled'
+import { Profile, KnownMovieName } from './Styled'
 
 interface State {
   person?: Person,
@@ -52,38 +52,38 @@ const ViewPeopleScreen = () => {
   return (
     <Container onBack={() => goBack(null)}>
       <ScrollView>
-        <ProfileOverview>
+        <Profile.Overview>
           <View style={{ width: imageWidth, height: imageHeight }}>
             <Image source={{ uri: person.profileUrl }} style={{ width: '100%', height: '100%' }} />
           </View>
-          <ProfileOverviewDetails>
-            <OverviewDetailsItem>
+          <Profile.Info>
+            <Profile.InfoItem>
               <Text type='semibold' size={21}>{person.name}</Text>
-            </OverviewDetailsItem>
-            <OverviewDetailsItem>
+            </Profile.InfoItem>
+            <Profile.InfoItem>
               <Text size={15}>Born :</Text>
               <Text size={15} color='light'>{moment(person.birthday).format('YYYY-MM-DD')}</Text>
-            </OverviewDetailsItem>
-            <OverviewDetailsItem>
+            </Profile.InfoItem>
+            <Profile.InfoItem>
               <Text size={15}>Place of birth :</Text>
               <Text size={15} color='light'>{person.placeOfBirth}</Text>
-            </OverviewDetailsItem>
-            <OverviewDetailsItem>
+            </Profile.InfoItem>
+            <Profile.InfoItem>
               <Text size={15}>Gender :</Text>
               <Text size={15} color='light'>{person.gender}</Text>
-            </OverviewDetailsItem>
-          </ProfileOverviewDetails>
-        </ProfileOverview>
-        <ProfileSection>
-          <ProfileSectionName>
+            </Profile.InfoItem>
+          </Profile.Info>
+        </Profile.Overview>
+        <Profile.Section>
+          <Profile.SectionName>
             <Text size={15}>Biography :</Text>
-          </ProfileSectionName>
+          </Profile.SectionName>
           <Text size={15} color='light' numberOfLines={10}>{person.biography}</Text>
-        </ProfileSection>
-        <ProfileSection>
-          <ProfileSectionName>
+        </Profile.Section>
+        <Profile.Section>
+          <Profile.SectionName>
             <Text size={15}>Also known for :</Text>
-          </ProfileSectionName>
+          </Profile.SectionName>
           <ScrollView horizontal>
             {person.alsoCast.map((c, index) => (
               <TouchableOpacity
@@ -99,7 +99,7 @@ const ViewPeopleScreen = () => {
               </TouchableOpacity>
             ))}
           </ScrollView>
-        </ProfileSection>
+        </Profile.Section>
       </ScrollView>
     </Container>
   )
