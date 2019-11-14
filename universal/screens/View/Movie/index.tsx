@@ -7,7 +7,7 @@ import { Screens } from '@utils/screens'
 import { searchMovieById } from '@utils/queries/movies'
 import { Movie } from '@models/movie'
 import { Container, Text, Loader } from '@components/native'
-import { CoverContainer, BlurCover, CoverImage, MovieDetails, MovieSecondaryDetails, MovieSecondaryItem, DetailsSection, DetailsSectionName, CastDetails } from './Styled'
+import { CoverContainer, BlurCover, CoverImage, BasicInfo, SecondaryInfo, InfoItem, DetailsSection, DetailsSectionName, CastDetails } from './Styled'
 
 interface State {
   movie?: Movie,
@@ -63,17 +63,17 @@ const MovieViewScreen = () => {
             <Image source={{ uri: movie.posterUrl }} style={{ width: imageWidth, height: imageHeight }} />
           </CoverImage>
         </CoverContainer>
-        <MovieDetails>
+        <BasicInfo>
           <Text type='bold' size={24} center>{movie.title}</Text>
-          <MovieSecondaryDetails>
-            <MovieSecondaryItem>
+          <SecondaryInfo>
+            <InfoItem>
               <Text size={17} color='light'>{moment(movie.releaseDate).format('YYYY')}</Text>
-            </MovieSecondaryItem>
-            <MovieSecondaryItem>
+            </InfoItem>
+            <InfoItem>
               <Text size={17} color='light'>{Math.floor((movie.duration / 60))}h {(movie.duration % 60)}m</Text>
-            </MovieSecondaryItem>
-          </MovieSecondaryDetails>
-        </MovieDetails>
+            </InfoItem>
+          </SecondaryInfo>
+        </BasicInfo>
         <DetailsSection>
           <DetailsSectionName>
             <Text type='semibold' size={18}>Overview</Text>

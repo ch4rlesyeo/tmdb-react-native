@@ -17,19 +17,19 @@ export const CoverImage = styled.View`
   justify-content: center;
 `
 
-export const MovieDetails = styled.View`
+export const BasicInfo = styled.View`
   padding: 10px;
   padding-top: 20px;
   align-items: center;
 `
 
-export const MovieSecondaryDetails = styled.View`
+export const SecondaryInfo = styled.View`
   padding-top: 20px;
   flex-direction: row;
   justify-content: space-around;
 `
 
-export const MovieSecondaryItem = styled.View`
+export const InfoItem = styled.View`
   padding: 0 10px;
 `
 
