@@ -59,7 +59,7 @@ it('Movie view should show empty description if result is empty', () => {
   expect(checkIfEmptyViewRendered).toBe(true)
 })
 
-it('Movie view should show result is result is not empty', () => {
+it('Movie view should show result if result is not empty', () => {
   const WrapperView = shallow(
     <MovieView
       loading={false}
