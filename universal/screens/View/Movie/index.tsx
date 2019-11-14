@@ -7,7 +7,7 @@ import { Screens } from '@utils/screens'
 import { searchMovieById } from '@utils/queries/movies'
 import { Movie } from '@models/movie'
 import { Container, Text, Loader } from '@components/native'
-import { CoverContainer, BlurCover, CoverImage, BasicInfo, SecondaryInfo, InfoItem, DetailsSection, DetailsSectionName, CastDetails } from './Styled'
+import { MovieCover, BlurCoverImage, CoverImage, BasicInfo, SecondaryInfo, InfoItem, DetailsSection, DetailsSectionName, CastDetails } from './Styled'
 
 interface State {
   movie?: Movie,
@@ -55,14 +55,14 @@ const MovieViewScreen = () => {
   return (
     <Container onBack={() => goBack(null)}>
       <ScrollView>
-        <CoverContainer>
-          <BlurCover>
+        <MovieCover>
+          <BlurCoverImage>
             <Image source={{ uri: movie.posterUrl }} style={{ width: '100%', height: imageHeight }} blurRadius={30} />
-          </BlurCover>
+          </BlurCoverImage>
           <CoverImage>
             <Image source={{ uri: movie.posterUrl }} style={{ width: imageWidth, height: imageHeight }} />
           </CoverImage>
-        </CoverContainer>
+        </MovieCover>
         <BasicInfo>
           <Text type='bold' size={24} center>{movie.title}</Text>
           <SecondaryInfo>

@@ -1,10 +1,10 @@
 import styled from 'styled-components/native'
 
-export const CoverContainer = styled.View`
+export const MovieCover = styled.View`
   position: relative;
 `
 
-export const BlurCover = styled.View`
+export const BlurCoverImage = styled.View`
   position: absolute;
   top: 0;
   left: 0;
