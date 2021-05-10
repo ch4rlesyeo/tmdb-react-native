@@ -21,7 +21,7 @@
     "expo-blur": "^7.0.0",
     "expo-font": "^7.0.0",
     "expo-linear-gradient": "^7.0.1",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "moment": "^2.24.0",
     "rc-form-hooks": "^0.0.1-alpha.22",
     "react": "16.8.3",
